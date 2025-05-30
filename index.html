@@ -606,11 +606,150 @@
             display: inline-block;
         }
 
-        /* CTA Section */
+        /* Three Pillars Section */
+        .pillars-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillars-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .pillars-image {
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .pillars-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .pillars-content {
+            padding: 2rem;
+        }
+
+        .pillars-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .pillar-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: var(--transition-default);
+        }
+
+        .pillar-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .pillar-item:nth-child(1) .pillar-icon {
+            background: #FFF4CC;
+            color: #F59E0B;
+        }
+
+        .pillar-item:nth-child(2) .pillar-icon {
+            background: #FFE5E5;
+            color: #EF4444;
+        }
+
+        .pillar-item:nth-child(3) .pillar-icon {
+            background: #E6F4EA;
+            color: #10B981;
+        }
+
+        .pillar-text h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .pillar-text p {
+            color: var(--mid-gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Enhanced CTA with second background */
         .cta-section {
             padding: 6rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/images/ispeak-background-2.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, var(--secondary) 0%, #5db1a5 100%);
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pillars-content {
+                order: 2;
+            }
+            
+            .pillars-image {
+                order: 1;
+            }
         }
 
         .cta-container {
@@ -673,12 +812,12 @@
             text-align: center;
         }
 
-        .footer-icon {
-            width: 60px;
-            height: 60px;
+        .footer-logo {
+            height: 80px;
+            width: auto;
             margin: 0 auto 2rem;
             filter: brightness(0) invert(1);
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .social-links {
@@ -978,6 +1117,50 @@
         </div>
     </section>
 
+    <!-- Three Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <div class="pillars-container">
+                <div class="pillars-image fade-in">
+                    <img src="assets/images/birds-on-trees.jpg" alt="Three Pillars of Learning">
+                </div>
+                <div class="pillars-content fade-in delay-1">
+                    <h2 class="pillars-title">The iSPEAK Method</h2>
+                    
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <i class="fas fa-ear-listen"></i>
+                        </div>
+                        <div class="pillar-text">
+                            <h3>Listening Skills</h3>
+                            <p>Children develop the ability to recognize sounds, understand tones, and comprehend spoken words—just as they naturally learned their first language.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="pillar-text">
+                            <h3>Speaking Skills</h3>
+                            <p>From imitation to independent expression, learners build vocabulary and proper grammar through guided conversations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pillar-item">
+                        <div class="pillar-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="pillar-text">
+                            <h3>Reading Skills</h3>
+                            <p>As learners progress, they master grammar, tonal rules, and spelling to develop complete language proficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="cta-container">
@@ -994,7 +1177,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <img src="assets/images/icons/2.png" alt="iSPEAK" class="footer-icon">
+            <img src="assets/images/ispeak-footer-logo.png" alt="iSPEAK Language Learning Program" class="footer-logo">
             <div class="social-links">
                 <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
