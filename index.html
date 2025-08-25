@@ -964,6 +964,12 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
+
+        /* Shimmer animation for progress bar */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
     </style>
 </head>
 <body>
@@ -980,8 +986,8 @@
         <div class="nav-btn" onclick="scrollToSection('hero')" title="Home">
             <i class="fas fa-home"></i>
         </div>
-        <div class="nav-btn" onclick="scrollToSection('countdown')" title="Launch Timer">
-            <i class="fas fa-clock"></i>
+        <div class="nav-btn" onclick="scrollToSection('countdown')" title="Progress">
+            <i class="fas fa-hammer"></i>
         </div>
         <div class="nav-btn" onclick="scrollToSection('features')" title="Features">
             <i class="fas fa-star"></i>
@@ -998,7 +1004,7 @@
             <h1>African Languages, <span class="highlight">Reimagined</span> for the Next Generation</h1>
             <p class="hero-subtitle">Live 1:1 lessons with certified indigenous speakers</p>
             <div style="margin-top: 2rem;">
-                <a href="#countdown" class="btn btn-primary btn-lg" style="margin-right: 1rem;">See Launch Date</a>
+                <a href="#countdown" class="btn btn-primary btn-lg" style="margin-right: 1rem;">View Progress</a>
                 <a href="#contact" class="btn btn-secondary btn-lg">Get Early Access</a>
             </div>
         </div>
@@ -1008,30 +1014,27 @@
         </div>
     </section>
 
-    <!-- Countdown Section -->
+    <!-- Progress Section (formerly Countdown) -->
     <section class="countdown-section" id="countdown">
         <div class="container">
             <div class="countdown-container fade-in">
-                <h2 class="countdown-title">
-                    <img src="assets/images/icons/2.png" alt="" class="countdown-icon">
-                    Launching in
+                <h2 class="countdown-title" style="font-size: 2.5rem; margin-bottom: 2rem;">
+                    🏗️ Under Construction: Building Bridges to Heritage
                 </h2>
-                <div class="countdown" id="countdown-timer">
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="days">30</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="minutes">00</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="seconds">00</span>
-                        <span class="countdown-label">Seconds</span>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <p style="font-size: 1.25rem; color: var(--mid-gray); line-height: 1.8; margin-bottom: 2rem;">
+                        We're carefully laying each brick of our language learning platform.
+                    </p>
+                    <p style="font-size: 1.125rem; color: var(--secondary); font-weight: 600;">
+                        Great things take time - and we're making it worth the wait!
+                    </p>
+                    <div style="margin-top: 3rem;">
+                        <div style="background: linear-gradient(to right, var(--accent), var(--secondary)); height: 8px; border-radius: 50px; overflow: hidden; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: rgba(255,255,255,0.3); animation: shimmer 2s infinite linear;"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--mid-gray); font-size: 0.875rem;">
+                            <i class="fas fa-hammer"></i> Platform under active development
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1239,25 +1242,7 @@
     <img src="assets/images/icons/3.png" alt="" class="floating-bird" style="bottom: 20%; left: 5%; animation-delay: 20s;">
 
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date('July 10, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // Progress animation (no longer countdown)
         
         // Gallery Slider
         let currentSlide = 0;
